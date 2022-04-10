@@ -1,0 +1,33 @@
+# Web-API Example app
+
+Web-API is a Node app to show how an API is being build.
+
+## Requirements
+
+Install NVM library to handle the node versions : 
+
+https://github.com/nvm-sh/nvm
+
+## Installation
+
+
+```bash
+nvm install v17.6.0
+nvm use
+npm install 
+
+```
+
+## Usage
+
+```node
+node api.js 
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
