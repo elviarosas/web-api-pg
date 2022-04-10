@@ -1,16 +1,40 @@
-const pool = require('../config/db.js')
+const dbService = require('../config/db.js')
 
 module.exports = {
     getAllUsers : () => {
 
-        sql = 'SELECT * FROM usuario'
-        return new Promise( (resolve, reject) => {
-            pool.query(sql, (error, results) =>{
-                if (error){
-                    return reject(error)
-                }
-                return resolve(results.rows)
-            })
-        })
+        sql = 'SELECT id, email FROM usuario'
+        return dbService.querypromise(sql)
+    },
+    getUser : (id) => {
+
+        sql = ` SELECT id, email 
+                FROM usuario
+                WHERE id=${id}`
+
+        return dbService.querypromise(sql)
+    },
+    addUser : (body) => {
+
+        const {email} = body
+
+        sql = ` INSERT INTO usuario(email) 
+                VALUES('${email}')
+                RETURNING *
+                `
+
+        return dbService.querypromise(sql)
+    },
+    updateUser : (id, body) => {
+
+        const {email} = body
+
+        sql = ` UPDATE usuario 
+                SET email = '${email}' 
+                WHERE id = ${id}
+                RETURNING *
+                `
+
+        return dbService.querypromise(sql)
     }
 }
