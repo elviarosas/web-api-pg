@@ -46,7 +46,7 @@ docker start nodejs-image-demo
 if the docker image needs to be stopped:
 
 ```bash
-docker start nodejs-image-demo
+docker stop nodejs-image-demo
 
 ```
 
