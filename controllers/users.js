@@ -4,10 +4,9 @@ module.exports = {
     getAllUsers : async (req, res, next) => {
         try {
             const users = await UserServices.getAllUsers();
-            res.json({users})
-
+            return res.json({users})
         } catch (err){
-            res.json({"message": `Erro al obtener los usuarios. Err: ${err}`})
+            return res.json({"message": `Erro al obtener los usuarios. Err: ${err}`})
         }
         
     },
