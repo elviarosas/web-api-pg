@@ -34,7 +34,7 @@ test('get all users ', async () => {
         return obj
     };
     const data = await userData.getAllUsers(req,res,next);
-    console.log(data.users);
+    //console.log(data.users);
     
     expect(data.users.id).toBe(1);
 });
@@ -52,7 +52,7 @@ test('get User, this will test the happy path ', async () => {
         return obj
     };
     const data = await userData.getUser(req,res);
-    console.log(data);
+    //console.log(data);
     
     expect(data.user.id).toBe(1);
 });
@@ -70,7 +70,7 @@ test('get User, return error if id is not integer ', async () => {
         return obj
     };
     const data = await userData.getUser(req,res);
-    console.log(data);
+    //console.log(data);
     
     expect(data.message).toBe('El Id necesita ser entero');
 });
@@ -94,7 +94,7 @@ test('happy path to update a user ', async () => {
     };
     
     const data = await userData.updateUser(req,res);
-    console.log(data);
+    //console.log(data);
     
     expect(data.user.name).toBe("testUpdated");
 });
@@ -109,7 +109,7 @@ test('update user with wrong id ', async () => {
     };
     let req = {
         "params" : {
-            "id" : "1"
+            "id" : 1
         },
         "body": {
             "name" : "test",
@@ -118,7 +118,7 @@ test('update user with wrong id ', async () => {
     };
     
     const data = await userData.updateUser(req,res);
-    console.log(data);
+    console.log(data.message);
     
     expect(data.message).toBe('El Id necesita ser entero');
 });
