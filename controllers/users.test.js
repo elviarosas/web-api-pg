@@ -109,7 +109,7 @@ test('update user with wrong id ', async () => {
     };
     let req = {
         "params" : {
-            "id" : 1
+            "id" : "1"
         },
         "body": {
             "name" : "test",
